@@ -46,15 +46,17 @@ function showResult() {
     if (sizeValue.value < 1 || weightValue.value < 1 || !sizeValue.value || !weightValue.value) {
         result.textContent = "Woops";
         resultDescription.textContent = "Remplissez correctement les valeurs."
+    } else {
+        const rank = BMIData.find(data => {
+            if (imc >= data.range[0] && imc <= data.range[1]) {
+                return data;
+            } else if (data.range >= 40) {
+                return data;
+            }
+        })
+
+        result.style.color = `${rank.color}`;
+        resultDescription.style.color = `${rank.color}`;
+        resultDescription.textContent = `Résultat : ${rank.name}`;
     }
-
-    const rank = BMIData.find(data => {
-        if (imc >= data.range[0] && imc <= data.range[1]) {
-            return data;
-        }
-    })
-
-    result.style.color = `${rank.color}`;
-    resultDescription.style.color = `${rank.color}`;
-    resultDescription.textContent = `Résultat : ${rank.name}`;
 }
