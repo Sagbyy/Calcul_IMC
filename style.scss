@@ -1,0 +1,134 @@
+//------------------ Reset
+
+*, ::before, ::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+//------------------ Variables
+
+$background-dark: #1f1f1f;
+$gradient-right: #c9c9c9;
+$gradient-left: #ffffff;
+$yellow-button: #ffb400;
+$yellow-hover: #cb9000;
+$yellow-text: #443000;
+
+$font: Roboto, Helvetica, sans-serif;
+
+//------------------ Body
+
+body {
+  background: $background-dark;
+  font-family: $font;
+  font-size: 12px;
+}
+
+
+//------------------- Container
+
+.container {
+  background: linear-gradient(to right, $gradient-left, $gradient-right);
+  width: 60%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
+  padding: 20px;
+
+  // Title
+  .title {
+    text-align: center;
+    font-size: 3.5em;
+    font-weight: 300;
+    margin: 20px;
+
+    strong {
+      font-weight: 800;
+    }
+  }
+
+  // Form
+  .form {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+
+    .section_input {
+      width: 100%;
+      margin: 0 10px;
+    }
+
+    .label_input {
+      display: block;
+      font-weight: 400;
+      margin-bottom: 7px;
+      font-size: 1.2em;
+    }
+
+    .input {
+      width: 100%;
+      padding: 10px;
+      border-radius: 5px;
+      border: none;
+      box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
+    }
+  }
+
+  // Button
+
+  .form_submit {
+    display: block;
+    margin: 30px auto;
+    padding: 10px;
+    font-size: 1.5em;
+    background: $yellow-button;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
+    border: none;
+    border-radius: 5px;
+    width: 30%;
+    font-weight: 600;
+    color: $yellow-text;
+    cursor: pointer;
+    transition: background 0.2s ease;
+
+    &:hover {
+      background: $yellow-hover;
+    }
+  }
+
+  // Result
+  .result_imc {
+    display: block;
+    text-align: center;
+    font-size: 3.8em;
+    font-weight: 700;
+  }
+
+  .result_description {
+    text-align: center;
+    margin-top: 10px;
+    font-size: 1.6em;
+    font-weight: 400;
+  }
+}
+
+@media screen and (max-width: 980px) {
+  .container {
+    width: 90%;
+
+    .form {
+      flex-direction: column;
+
+      .label_input {
+        margin-top: 10px;
+      }
+    }
+
+    .form_submit {
+      width: 100%;
+    }
+  }
+}
